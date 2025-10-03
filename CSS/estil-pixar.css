@@ -1,0 +1,120 @@
+/* Contenidor header: logo a l'esquerra, menú a la dreta */
+.contenedor-header {
+  display: flex;
+  justify-content: space-between; /* separa logo i menú */
+  align-items: center;            /* centra verticalment */
+  padding: 10px 30px;
+  background-color: white;
+}
+
+/* Logo */
+h1 {
+  font-family: "cambria";
+  margin: 0;
+}
+
+/* Menú principal */
+nav {
+  font-variant-caps: all-small-caps;
+  font-size: 20px;
+}
+
+/* Llista del menú */
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 30px;
+}
+
+/* Items del menú */
+nav ul li {
+  position: relative; /* necessari per als submenús */
+}
+
+nav ul li a, nav ul li {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  padding: 10px;
+  display: block;
+}
+
+nav ul li a:hover {
+  background-color: #eee;
+}
+
+/* Submenús */
+nav ul li .submenu {
+  display: none;
+  position: absolute;
+  top: 100%;   /* just sota del pare */
+  left: 0;     /* apareix sota el pare */
+  background-color: white;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  min-width: 200px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  z-index: 1000;
+}
+
+nav ul li .submenu li a {
+  font-weight: normal;
+  padding: 10px 15px;
+}
+
+nav ul li .submenu li a:hover {
+  background-color: #ddd;
+}
+
+/* Mostrar submenú al hover */
+nav ul li:hover .submenu {
+  display: block;
+}
+
+/* Submenú del últim item: apareix cap a l’esquerra */
+nav ul li:last-child .submenu {
+  left: auto;
+  right: 0;
+}
+
+/* GALERIA */
+section.galeria {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 20px;
+}
+
+section.galeria img {
+  width: 225px;
+  height: 225px;
+  object-fit: cover; 
+  border-radius: 8px;
+  display: block;
+  margin: 20px auto;
+}
+
+section.galeria p {
+  font-size: 20px;
+  font-variant-caps: all-small-caps;
+  text-align: center;
+}
+
+/* FOOTER */
+footer {
+  margin-top: 30px;
+  text-align: center;
+  font-weight: bold;
+  background-color: white;
+  color: black;
+  padding: 15px 0;
+  font-size: 14px;
+}
+
+footer .logo-disney {
+  width: 150px;
+  margin-bottom: 10px;
+}
