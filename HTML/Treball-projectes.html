@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="ca">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>UrgènciaSmart — Troba l'hospital més convenient</title>
+  <meta name="description" content="Recomanador d'hospital segons aforament a urgències i la teva ubicació GPS." />
+  
+  <link rel="stylesheet" href="../CSS/Treball-projectes.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container">
+      <h1>UrgènciaSmart</h1>
+      <p class="tag">L'hospital ideal segons aforament i ubicació</p>
+    </div>
+  </header>
+
+  <main class="container grid">
+    <section class="controls">
+      <h2>Controls</h2>
+      <div class="control-row">
+        <button id="btn-locate" class="btn">Usa la meva ubicació</button>
+        <button id="btn-refresh" class="btn ghost">Actualitza dades</button>
+      </div>
+
+      <label class="label">Radi de cerca: <span id="radius-value">10 km</span></label>
+      <input id="radius" type="range" min="1" max="50" value="10">
+
+      <label class="label">Prioritat</label>
+      <select id="priority">
+        <option value="balanced">Equilibrat (distància + aforament)</option>
+        <option value="distance">Prioritza distància</option>
+        <option value="occupancy">Prioritza aforament baix</option>
+      </select>
+
+      <label class="label">Filtra per mín. llits disponibles</label>
+      <input id="min-beds" type="number" min="0" value="0">
+
+      <div class="legend">
+        <strong>Llegenda:</strong>
+        <ul>
+          <li><span class="dot good"></span> Poc aforat</li>
+          <li><span class="dot warn"></span> Mitjà</li>
+          <li><span class="dot bad"></span> Aforat</li>
+        </ul>
+      </div>
+
+      <div class="notes" id="status">Estat: esperant localització...</div>
+    </section>
+
+    <section id="map" class="map" aria-label="Mapa d'hospitals"></section>
+
+    <section class="results">
+      <h2>Hospitals recomanats</h2>
+      <ul id="list" class="list"></ul>
+    </section>
+
+    <section class="comments">
+      <h2>Comentaris d'usuaris</h2>
+      <ul id="comments-list" class="list"></ul>
+      <form id="comment-form">
+        <input type="text" id="comment-input" placeholder="Escriu un comentari..." required>
+        <button type="submit" class="btn">Enviar</button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <small>© UrgènciaSmart — Dades simulades. Protecció de dades respectada.</small>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="../JS/Treball-projectes.js"></script>
+</body>
+</html>

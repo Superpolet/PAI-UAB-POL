@@ -102,3 +102,24 @@ function calculadoraNotaFinal() {
 }
 
 alert(calculadoraNotaFinal());
+
+/* Exercici 3.5
+Hem organitzat un concurs a Twitter que consisteix en fer relats curs (màxim 280 caràcters) amb el màxim número de paraules de 5 caràcters. Per poder donar el premi, el que volem fer és classificar tots  els tuits segons el nombre de paraules de 5 caràcters que tenen i, per tant, necessitem una funció que, donada una frase, ens retorni el número de paraules de 5 caràcters que té.
+Per fer aquesta funció haurem de tenir en compte que: 
+Totes les frases acaben en un punt (.) y totes comencen sempre per una paraula. 
+Una paraula acaba quan apareix una coma (,) o un espai en blanc. 
+Les frases només poden tenir lletres, comes, espais en blanc y el punt final. No tindrem en compte que pugui aparèixer cap altre caràcter. 
+Per conèixer la llargària de la frase (quants caràcters té) podem fer servir la propietat length del Strings de JavaScript (consulteu https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Str ing/length per saber com fer-la servir)  */
+
+function comptadorParaulesCincLletres(frase) {
+    let paraules = frase.split(/[\s,]+/); 
+    let comptador = 0;   
+    for (let paraula of paraules) {
+        if (paraula.length === 5) {
+            comptador++;
+        }           
+    }
+    return comptador;   
+}
+let frase = prompt("Introdueix una frase acabada en punt:");
+alert("Paraules amb 5 lletres: " + comptadorParaulesCincLletres(frase));

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prova var i let - extern</title>
+</head>
+<body>
+  <h1>Proves amb DOM</h1>
+  <p>Primer párrafo</p>
+  <p>Segundo párrafo</p>
+  <p>Tercer párrafo</p>
+  <button>Enviar</button>
+  <button>Guardar</button>
+  <button>Cancelar</button>
+  <!-- Enllaç al fitxer JavaScript extern -->
+  <script>
+    const parrafos = document.getElementsByTagName('p');
+    for (let i = 0; i < parrafos.length; i++) {
+        parrafos[i].style.color = 'blue'
+    }
+    const botones = document.getElementsByTagName('button');
+    for (let i = 0; i < botones.length; i++) {
+        botones[i].innerText = '¡Clic aquí!';
+    }
+  </script>
+</body>
+</html>
