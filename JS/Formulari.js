@@ -15,11 +15,8 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }p
 
-    // Simular envío (solo demostración)
     resposta.textContent = `¡Gràcies, ${nom}! Hem rebut el vostre missatge de${correu}`;
     resposta.style.color = 'green';
-
-    // Limpiar campos
     form.reset();
   });
 });  
